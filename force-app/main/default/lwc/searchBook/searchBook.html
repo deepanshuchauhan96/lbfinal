@@ -1,0 +1,27 @@
+<template>
+    <h2>* Search By</h2>
+   <lightning-button-group >
+       <lightning-button label="ID" onclick={onClickId}></lightning-button>
+       <lightning-button label="Name" onclick={onClickName} ></lightning-button>
+       <lightning-button label="Author" onclick={onClickAuthor} ></lightning-button>
+       <lightning-button label="Category" onclick={onClickCategory} ></lightning-button>
+       <lightning-button label="Member ID" onclick={onClickMember} ></lightning-button>
+
+   </lightning-button-group>
+    <lightning-input label="Search" name="search" onchange={onChangeInput}></lightning-input>
+    <lightning-button label="Search" onclick={onSearch}></lightning-button>
+    <lightning-button label="Clear" onclick={onClear}></lightning-button>
+    <lightning-card>
+        <template if:true={finalSearchBooks}>
+            <lightning-datatable
+                key-field="Id"
+                data={finalSearchBooks}
+                columns={columns}
+            >
+           </lightning-datatable>
+        </template>
+        <!-- <template if:true={errors}>
+            <p>{errors}</p>
+        </template> -->
+    </lightning-card>
+</template>
